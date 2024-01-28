@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,31 +14,46 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
+
 export class LoginComponent {
 
-  constructor(public formBuilder: FormBuilder, private router: Router)  { }
-  loginForm : FormGroup;
+  constructor(public formBuilder: FormBuilder,
+    private router: Router,
+    private loginService: LoginService) {
 
-  //validação prontas para os campos de input
-  ngOnInit():void {
-    this.loginForm = this.formBuilder.group(
-      {
-        email : ['', [Validators.required, Validators.email]],
-        senha: ['', [Validators.required]]
+  }
+
+  loginForm: FormGroup;
+
+  ngOnInit(): void {
+
+    this.loginForm = this.formBuilder.group
+      (
+        {
+          email: ['', [Validators.required, Validators.email]],
+          senha: ['', [Validators.required]]
+        }
+      )
+  }
+
+
+  get dadosForm() {
+    return this, this.loginForm.controls;
+  }
+
+
+  loginUser() {
+
+    this.loginService.login(this.dadosForm["email"].value, this.dadosForm["senha"].value).subscribe(
+      token => {
+        alert(token);
+        this.router.navigate(['/dashboard']);
+      },
+      err => {
+        alert('Ocorreu um erro');
       }
+
     )
-  }
-
-  //obtém dados do form
-  get dadosForm() 
-  {
-    return this.loginForm.controls;
-  }
-
-  //quando logar chama esse método.
-  loginUser()
-  {
-    alert("ok")
   }
 
 }
