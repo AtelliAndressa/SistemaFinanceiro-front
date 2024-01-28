@@ -23,7 +23,7 @@
                         formControlName="email"
                         required=""
                     >
-                    <label *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched" class="error-input">
+                    <label *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched" class="error-input">
                         Campo Obrigatório!
                     </label>
                 </div>
@@ -40,7 +40,7 @@
                         formControlName="senha"
                         required=""
                     >
-                    <label *ngIf="loginForm.get('senha')?.errors?.required && loginForm.get('senha')?.touched" class="error-input">
+                    <label *ngIf="loginForm.get('senha')?.errors?.['required'] && loginForm.get('senha')?.touched" class="error-input">
                         Campo Obrigatório!
                     </label>
                 </div>
