@@ -5,7 +5,10 @@
         <div class="container-icone-menu">
 
             <div class="caixa-menu caixa-menu-texto" 
-                (click)="selectMenu(1)">                
+                (click)="selectMenu(1)" 
+                [ngClass]="{'caixa-menu-select': 
+                this.menuService.menuSelecionado == 1, 
+                '': this.menuService.menuSelecionado != 1}">
                 Sistema
             </div>
 
