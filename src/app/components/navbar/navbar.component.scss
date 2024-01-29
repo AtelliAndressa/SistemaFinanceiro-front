@@ -7,8 +7,8 @@
     box-shadow: 0px 0.5px 2px rgb(53 51 52 / 16%);
     height: 72px;
     display: flex;
-    //position: fixed;
+    position: fixed;
     width: -webkit-fill-available;
-
+    margin-top: -25px;
     z-index: 9999;
 }
