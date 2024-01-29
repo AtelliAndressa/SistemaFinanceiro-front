@@ -41,7 +41,7 @@ export class LoginComponent {
     return this, this.loginForm.controls;
   }
 
-
+//Regra para passar  os dados do formulário para o service de autenticação e depois redirecionar pra tela de dashboard
   loginUser() {
 
     this.loginService.login(this.dadosForm["email"].value, this.dadosForm["senha"].value).subscribe(
