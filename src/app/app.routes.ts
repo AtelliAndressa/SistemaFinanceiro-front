@@ -21,5 +21,17 @@ export const routes: Routes = [
         //criado novo arquivo dashboard-routing.module.ts e dashboard.module.ts
         path:"dashboard", 
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m=> m.DashboardModule)
+    },
+    {
+        path:"sistema", 
+        loadChildren: () => import('./pages/sistema/sistema.module').then(m=> m.SistemaModule)
+    },    
+    {
+        path:"categoria", 
+        loadChildren: () => import('./pages/categoria/categoria.module').then(m=> m.CategoriaModule)
+    },
+    {
+        path:"despesa", 
+        loadChildren: () => import('./pages/despesa/despesa.module').then(m=> m.DespesaModule)
     }
 ];
