@@ -46,7 +46,8 @@ export class LoginComponent {
 
     this.loginService.login(this.dadosForm["email"].value, this.dadosForm["senha"].value).subscribe(
       token => {
-        alert(token);
+        const tokenString = JSON.stringify(token);
+        alert(tokenString);
         this.router.navigate(['/dashboard']);
       },
       err => {
