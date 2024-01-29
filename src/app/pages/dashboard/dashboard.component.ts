@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 
+import { NavbarModule } from '../../components/navbar/navbar.module';
+import { SidebarModule } from '../../components/sidebar/sidebar.module';
+
 @Component({
   selector: 'dashboard',
   standalone: true,
-  imports: [],
+  imports: [NavbarModule, SidebarModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
