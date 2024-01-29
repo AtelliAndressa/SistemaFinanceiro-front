@@ -7,4 +7,39 @@
     width: 110px;
     min-height: 700px;
     height: -webkit-fill-available;
+
+
+    .grupo-menu
+    {
+
+    }
+
+    .container-icone-menu
+    {
+        padding: 8px;
+    }
+
+    .caixa-menu
+    {
+        width: 94px;
+        height: 42px;
+        border-radius: 4px;
+        background: rgba(128, 128, 128, 0.614);
+        cursor: pointer;
+    }
+
+    .caixa-menu-select
+    {
+        background: #27ae60 !important;
+    }
+
+    .caixa-menu-texto
+    {
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fefefe;
+        font-weight: bold;
+    }
 }
