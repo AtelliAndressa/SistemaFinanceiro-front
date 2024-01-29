@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'despesa',
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class DespesaComponent {
 
+  constructor(public menuService:MenuService){}
+
+  ngOnInit() {
+    this.menuService.menuSelecionado = 4;
+  }
 }
