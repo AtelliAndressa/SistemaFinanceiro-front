@@ -16,5 +16,6 @@ export class LoginService {
   login(email: string, password: string) {
     return this.httpClient.post<any>(`${this.baseUrl}/CreateToken`, { email, password });
   }
-
 }
+
+//Para criar a pages de login usei o comando no terminal: ng g c pages/login

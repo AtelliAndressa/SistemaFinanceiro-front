@@ -9,9 +9,15 @@ export const routes: Routes = [
     },
     {
         //comando usado no terminal para gerar todos os componentes necessarios de login: ng g c pages/login
-        path:"login", component: LoginComponent
+        path:"login", 
+        component: LoginComponent
     }, 
     {
-        path:"", component: LoginComponent
+        path:"", 
+        component: LoginComponent
+    },
+    {
+        path:"dashboard", 
+        loadChildren: () => import('./pages/dashboard/dashboard.module').then(m=> m.DashboardModule)
     }
 ];
