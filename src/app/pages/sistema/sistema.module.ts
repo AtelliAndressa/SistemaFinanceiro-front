@@ -6,12 +6,13 @@ import { SistemaComponent } from './sistema.component';
 
 import { NavbarModule } from '../../components/navbar/navbar.module';
 import { SidebarModule } from '../../components/sidebar/sidebar.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //ele havia declarado o dashboardComponent no declarations, eu declarei no imports pq deu erro
 @NgModule({
     providers:[],
     declarations:[],
-    imports:[CommonModule, SistemaRoutingModule, SistemaComponent, NavbarModule, SidebarModule]
+    imports:[CommonModule, SistemaRoutingModule, SistemaComponent, NavbarModule, SidebarModule, ReactiveFormsModule]
 })
 
 export class SistemaModule{}
