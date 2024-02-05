@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { MenuService } from '../../services/menu.service';
 import { NavbarModule } from '../../components/navbar/navbar.module';
 import { SidebarModule } from '../../components/sidebar/sidebar.module';
-import { FormBuilder, FormGroup, FormsModule, NgSelectOption, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SelectModel } from '../../models/SelectModel';
 
 @Component({
   selector: 'categoria',
@@ -13,10 +14,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
   templateUrl: './categoria.component.html',
   styleUrl: './categoria.component.scss'
 })
+
 export class CategoriaComponent {
 
   constructor(public menuService:MenuService, public formBuilder: FormBuilder){}
 
+  listSistemas = new Array<SelectModel>();
+  sistemaSelect = new SelectModel();
+  
   categoriaForm: FormGroup;
 
   ngOnInit(){
