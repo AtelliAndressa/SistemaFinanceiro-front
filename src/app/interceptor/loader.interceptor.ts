@@ -60,7 +60,7 @@ export class LoaderInterceptor implements HttpInterceptor
                 contentType: "false",
                 processData: "false"
             });
-        }
+        } //Pegar o token, sem login feito
         else if (req.body instanceof FormData) 
         {
             headers: new HttpHeaders({
@@ -68,7 +68,8 @@ export class LoaderInterceptor implements HttpInterceptor
                 processData: "false",
                 Authorization: "Bearer " + this.authService.getToken
             });
-        } else {
+        } else //após fazer o login entra aqui no else
+        {
             debugger
             headers = new HttpHeaders()
                 .append("accept", "application/json")
@@ -79,24 +80,29 @@ export class LoaderInterceptor implements HttpInterceptor
 
         let request = req.clone({ headers });
         this.status.setHttpStatus(true);
+        this.spinner.show(); //Abre o loader na tela
 
-        return next.handle(request).pipe(map((event) => {
+        return next.handle(request).pipe(
+            map((event) => {
             return event;
         }),
         catchError((error: Response) => {
             if (error.status === 401) {
-
+                this.router.navigate(["/Rota 401 Unauthorized"]);
             }
             return throwError(error);
-        }),
+        }), 
         finalize(() => {
+            //Ao dar tudo certo entra aqui
             --this._requests;
             this.status.setHttpStatus(this._requests > 0);
             this.status.getHttpStatus().subscribe((status: boolean) => {
-
+                if (!status) 
+                {
+                    this.spinner.hide(); //remove o loader.
+                }
             });
-          })
-        
+          })        
         );
     }
 }

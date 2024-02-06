@@ -17,7 +17,6 @@ export class AuthService
 
     }
 
-
     checkToken()
     {
         return Promise.resolve(true);
@@ -27,6 +26,12 @@ export class AuthService
     {
         localStorage.setItem('usuarioAutenticadoPortal', JSON.stringify(status));
         this.usuarioAutenticadoPortal = status;
+    }
+
+    UsuarioEstaAutenticado(): Promise<boolean> 
+    {
+        this.usuarioAutenticadoPortal = localStorage.getItem('usuarioAutenticadoPortal') == 'true';
+        return Promise.resolve(this.usuarioAutenticadoPortal);
     }
 
     setToken(token : string)
