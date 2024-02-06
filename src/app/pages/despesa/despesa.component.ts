@@ -21,6 +21,9 @@ export class DespesaComponent {
 
   listSistemas = new Array<SelectModel>();
   sistemaSelect = new SelectModel();
+
+  listCategorias = new Array<SelectModel>();
+  categoriaSelect = new SelectModel();
   
   despesaForm: FormGroup;
   ngOnInit() {
@@ -28,7 +31,11 @@ export class DespesaComponent {
 
     this.despesaForm = this.formBuilder.group(
       {
-        name:['', [Validators.required]]
+        name:['', [Validators.required]],
+        valor:['', [Validators.required]],
+        data:['', [Validators.required]],
+        sistemaSelect:['', [Validators.required]],
+        categoriaSelect:['', [Validators.required]]
       }
     )
   }
